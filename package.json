@@ -1,0 +1,64 @@
+{
+  "name": "pf-watcher",
+  "productName": "招募板监听器",
+  "version": "1.2.1",
+  "private": true,
+  "description": "FF14 招募板监听器 · 本地客户端",
+  "author": "PF Watcher",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "electron .",
+    "dist": "vite build && electron-builder --win portable"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "electron": "35.7.5",
+    "electron-builder": "^25.1.8",
+    "vite": "^5.4.11"
+  },
+  "build": {
+    "appId": "xin.ff14.pfwatcher",
+    "productName": "招募板监听器",
+    "asar": true,
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "electron/**/*",
+      "dist/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "portable": {
+      "artifactName": "PFWatcher-${version}.exe",
+      "unpackDirName": "PFWatcher"
+    }
+  },
+  "license": "MIT",
+  "keywords": [
+    "ffxiv",
+    "party-finder",
+    "recruitment",
+    "electron",
+    "react",
+    "desktop",
+    "windows"
+  ]
+}

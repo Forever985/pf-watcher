@@ -1,0 +1,21 @@
+# 依赖
+node_modules/
+
+# 构建产物
+dist/
+release/
+*.exe
+
+# 本地调试与临时文件
+_scratch/
+_tools/
+.npmrc
+*.log
+npm-debug.log*
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
