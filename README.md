@@ -142,13 +142,27 @@ npm run dist
 
 输出 `release/PFWatcher-<version>.exe`，约 75 MB。体积基本全是 Electron 运行时（Chromium + Node），业务代码不到 1 MB——这是自带浏览器内核的固有成本，删代码省不出来。
 
-如果 `electron` 下载慢，可以复用已经装好的运行时：
+首次打包会从 GitHub 抓两份东西：Electron 运行时（约 100 MB）和 winCodeSign 工具。国内网络下这一步经常超时或返回 Bad Gateway，两种绕法：
 
 ```bash
-npx electron-builder --win portable -c.electronDist=<本地 electron 目录>
+# 1) 复用 npm 已经装好的 Electron 运行时
+npx electron-builder --win portable -c.electronDist=node_modules/electron/dist
+
+# 2) 还卡在 winCodeSign 的话，跳过签名与元数据写入
+npx electron-builder --win portable -c.electronDist=node_modules/electron/dist -c.win.signAndEditExecutable=false
 ```
 
-GitHub Actions 也会在打 tag 时自动构建并挂到 Release，见 `.github/workflows/build.yml`。
+第 2 种出来的 exe 是 Electron 默认图标、也没有版本信息，需要自己用 [rcedit](https://github.com/electron/rcedit) 补：
+
+```bash
+rcedit release/win-unpacked/招募板监听器.exe --set-icon build/icon.ico --set-file-version 1.2.1.0
+```
+
+最省事的是让 GitHub Actions 出包：打 tag 会自动构建并挂到 Release，见 `.github/workflows/build.yml`。
+
+```bash
+git tag v1.2.1 && git push --tags
+```
 
 ## 目录结构
 
