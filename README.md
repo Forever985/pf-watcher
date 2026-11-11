@@ -4,10 +4,12 @@
   <p>FF14 国服招募板的本地监听客户端 · Windows 桌面端</p>
 
   <p>
+    <img alt="release" src="https://img.shields.io/github/v/release/Forever985/pf-watcher?style=flat-square&color=E0A93B">
     <img alt="platform" src="https://img.shields.io/badge/platform-Windows%2010%20%7C%2011-0078D6?style=flat-square">
     <img alt="electron" src="https://img.shields.io/badge/Electron-35-47848F?style=flat-square">
     <img alt="react" src="https://img.shields.io/badge/React-18-61DAFB?style=flat-square">
     <img alt="license" src="https://img.shields.io/badge/license-MIT-3DA639?style=flat-square">
+    <a href="../../actions/workflows/build.yml"><img alt="build" src="../../actions/workflows/build.yml/badge.svg"></a>
   </p>
 </div>
 
