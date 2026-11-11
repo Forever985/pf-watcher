@@ -5,6 +5,14 @@
   "private": true,
   "description": "FF14 招募板监听器 · 本地客户端",
   "author": "PF Watcher",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Forever985/pf-watcher.git"
+  },
+  "homepage": "https://github.com/Forever985/pf-watcher#readme",
+  "bugs": {
+    "url": "https://github.com/Forever985/pf-watcher/issues"
+  },
   "main": "electron/main.js",
   "scripts": {
     "dev": "vite",
